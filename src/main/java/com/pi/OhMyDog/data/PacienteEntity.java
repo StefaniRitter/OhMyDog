@@ -10,7 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "filmes")
+@Table(name = "pacientes")
 @Data 
 @NoArgsConstructor
 @AllArgsConstructor 
@@ -18,7 +18,7 @@ public class PacienteEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
      private String nome;
     private String especie;
     private String raca;
