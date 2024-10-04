@@ -57,3 +57,24 @@ textarea {
     resize: none;
 }
 
+body .icone {
+    width: 40px !important;
+    height: 40px !important;
+    background-color: green !important;
+    color: white !important;
+    position: absolute; /* Para posicionar em relação à tela */
+    top: 10px; /* Distância do topo */
+    left: 10px; /* Distância da esquerda */
+    display: flex; /* Para centralizar o conteúdo */
+    align-items: center; /* Alinhamento vertical */
+    justify-content: center; /* Alinhamento horizontal */
+    border-radius: 50%; /* Para deixar o ícone redondo */
+    text-decoration: none; /* Remove o sublinhado */
+    font-size: 20px; /* Aumenta o tamanho do ícone */
+}
+.icone i {
+    color: white; /* Cor do ícone */
+}
+.icone:hover {
+    background-color: darkgreen; /* Cor ao passar o mouse */
+}

@@ -18,38 +18,38 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="nome">Nome</label>
-                            <input type="text" th:field="*{nome}" class="form-control form-control-sm" id="nome" placeholder="Nome do paciente">
+                            <input type="text" th:field="*{nome}" class="form-control form-control-sm" id="nome" placeholder="Nome do paciente" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="especie">Espécie</label>
-                            <input type="text" th:field="*{especie}" class="form-control form-control-sm" id="especie" placeholder="Espécie">
+                            <input type="text" th:field="*{especie}" class="form-control form-control-sm" id="especie" placeholder="Espécie" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="raca">Raça</label>
-                            <input type="text" th:field="*{raca}" class="form-control form-control-sm" id="raca" placeholder="Raça">
+                            <input type="text" th:field="*{raca}" class="form-control form-control-sm" id="raca" placeholder="Raça" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="sexo">Sexo</label>
-                            <input type="text" th:field="*{sexo}" class="form-control form-control-sm" id="sexo" placeholder="Sexo">
+                            <input type="text" th:field="*{sexo}" class="form-control form-control-sm" id="sexo" placeholder="Sexo" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="idade">Idade</label>
-                            <input type="text" th:field="*{idade}" class="form-control form-control-sm" id="idade" placeholder="Idade">
+                            <input type="text" th:field="*{idade}" class="form-control form-control-sm" id="idade" placeholder="Idade" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="peso">Peso</label>
-                            <input type="text" th:field="*{peso}" class="form-control form-control-sm" id="peso" placeholder="Peso">
+                            <input type="text" th:field="*{peso}" class="form-control form-control-sm" id="peso" placeholder="Peso" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="observacoes">Observações</label>
-                        <textarea th:field="*{observacoes}" class="form-control form-control-sm" id="observacoes" rows="2"></textarea>
+                        <textarea th:field="*{observacoes}" class="form-control form-control-sm" id="observacoes" rows="2" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-block btn-primary">Salvar Alterações</button>
+                    <button type="submit" class="btn btn-block">Salvar Alterações</button>
                 </form>
             </div>
         </div>

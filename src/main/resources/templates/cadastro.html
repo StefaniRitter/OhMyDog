@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Pets</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="cadastro.css">
+    <link rel="stylesheet" href="/cadastro.css">
 </head>
 <body>
     <div class="text-center mt-3">
@@ -18,36 +18,36 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="nome">Nome</label>
-                        <input type="text" th:field="*{nome}" class="form-control form-control-sm" id="nome">
+                        <input type="text" th:field="*{nome}" class="form-control form-control-sm" id="nome" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="especie">Espécie</label>
-                        <input type="text" th:field="*{especie}" class="form-control form-control-sm" id="especie">
+                        <input type="text" th:field="*{especie}" class="form-control form-control-sm" id="especie" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="raca">Raça</label>
-                        <input type="text" th:field="*{raca}" class="form-control form-control-sm" id="raca">
+                        <input type="text" th:field="*{raca}" class="form-control form-control-sm" id="raca" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="sexo">Sexo</label>
-                        <input type="text" th:field="*{sexo}" class="form-control form-control-sm" id="sexo">
+                        <input type="text" th:field="*{sexo}" class="form-control form-control-sm" id="sexo" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="idade">Idade</label>
-                        <input type="text" th:field="*{idade}" class="form-control form-control-sm" id="idade">
+                        <input type="text" th:field="*{idade}" class="form-control form-control-sm" id="idade" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="peso">Peso</label>
-                        <input type="text" th:field="*{peso}" class="form-control form-control-sm" id="peso">
+                        <input type="text" th:field="*{peso}" class="form-control form-control-sm" id="peso" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="observacoes">Observações</label>
-                    <textarea class="form-control form-control-sm" th:field="*{observacoes}" id="observacoes" rows="2"></textarea>
+                    <textarea class="form-control form-control-sm" th:field="*{observacoes}" id="observacoes" rows="2" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-block ">Cadastrar</button>
             </form>
