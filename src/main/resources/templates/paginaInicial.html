@@ -1,12 +1,61 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="/paginaInicial.css">
+            <link rel="stylesheet" 
+                  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+                  crossorigin="anonymous">
         <title>Clínica OhMyDog</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div><h1>Clínica Veterinária OhMyDog</h1></div>
-        
+        <div>
+            <h1 align="center">Oh My Dog</h1>
+            <h6 align="center">Clínica Veterinária</h6>
+        </div>
+        <div class="container">
+            <button type="button" class="btn btn-lg btn-block novaConsultaButton">Nova Consulta</button>
+            <button type="button" class="btn btn-lg btn-block agendaButton">Agenda de Consultas</button>
+            <button type="button" class="btn btn-lg btn-block novoPacButton">Novo Paciente</button>  
+            <button type="button" class="btn btn-lg btn-block listaButton">Lista de Pacientes</button>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+
+            document.querySelector('.novaConsultaButton').addEventListener('click', function () {
+                novaConsulta();
+            });
+
+            function novaConsulta() {
+                window.location.href = '/consultas/novaConsulta';
+            }
+            
+            document.querySelector('.agendaButton').addEventListener('click', function () {
+                agendaConsultas();
+            });
+
+            function agendaConsultas() {
+                window.location.href = '/consultas/agenda';
+            }
+            
+            document.querySelector('.novoPacButton').addEventListener('click', function () {
+                novoPac();
+            });
+
+            function novoPac() {
+                window.location.href = '/pacientes/cadastro';
+            }
+            
+            document.querySelector('.listaButton').addEventListener('click', function () {
+                    lista();
+            });
+
+            function lista() {
+                window.location.href = '/pacientes/lista';
+            }
+
+        </script>
+
     </body>
 </html>

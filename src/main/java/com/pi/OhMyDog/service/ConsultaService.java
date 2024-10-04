@@ -17,23 +17,23 @@ public class ConsultaService {
         return consRepository.findAll();
     }
 
-  public List<ConsultaEntity> listarConsultasPorPet(String nomePet) {
+    public List<ConsultaEntity> listarConsultasPorPet(String nomePet) {
         return consRepository.findByNomePet(nomePet);
-  }
+    }
 
-  public ConsultaEntity salvarConsulta(ConsultaEntity consulta) {
+    public ConsultaEntity salvarConsulta(ConsultaEntity consulta) {
         return consRepository.save(consulta);
     }
-  
-  public ConsultaEntity atualizarCons(int id, ConsultaEntity consultaRequest) {
+
+    public ConsultaEntity atualizarCons(int id, ConsultaEntity consultaRequest) {
         Optional<ConsultaEntity> consultaExistente = consRepository.findById(id);
         if (consultaExistente.isPresent()) {
             ConsultaEntity cons = consultaExistente.get();
             cons.setData(consultaRequest.getData());
             cons.setHora(consultaRequest.getHora());
-            cons.setIdPet(consultaRequest.getIdPet());
             cons.setDescricao(consultaRequest.getDescricao());
             cons.setPago(consultaRequest.getPago());
+            cons.setPaciente(consultaRequest.getPaciente()); // Atualiza o paciente
             return consRepository.save(cons);
         }
         return null;
@@ -47,10 +47,9 @@ public class ConsultaService {
         }
         return false;
     }
-    
+
     public ConsultaEntity buscarPorId(int id) {
         Optional<ConsultaEntity> consulta = consRepository.findById(id);
         return consulta.orElseThrow(() -> new RuntimeException("Consulta não encontrada"));
     }
-
 }

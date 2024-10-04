@@ -1,15 +1,91 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Agenda de Consultas</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     </head>
     <body>
-        <div>TODO write content</div>
-    </body>
+        <div class="container mt-3">
+            <h1 class="text-center">Agenda de Consultas</h1>
+
+            <!-- Tabela de Pacientes -->
+            <table class="table table-bordered table-striped mt-4">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Selecionar</th>
+                        <th>Data</th>
+                        <th>Hora</th>
+                        <th>Paciente</th>
+                        <th>Descrição</th>
+                        <th>Pago</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="consulta : ${consultas}">
+                        <td>
+                            <input type="radio" name="selectedConsulta" th:value="${consulta.id}">
+                        </td>
+                        <td th:text="${consulta.data}"></td>
+                        <td th:text="${consulta.hora}"></td>
+                        <td th:text="${consulta.paciente.nome}"></td> <!-- Alterado para acessar diretamente o nome do paciente -->
+                        <td th:text="${consulta.descricao}"></td>
+                        <td th:text="${consulta.pago}"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Botões de ação -->
+            <div class="mt-4 text-center">
+                <button id="editarBtn" class="btn btn-primary">Editar</button>
+                <button id="excluirBtn" class="btn btn-danger">Excluir</button>
+            </div>
+        </div>
+
+        <script>
+            // Função para editar paciente
+            document.getElementById('editarBtn').addEventListener('click', function () {
+                const selectedConsulta = document.querySelector('input[name="selectedConsulta"]:checked');
+                if (selectedConsulta) {
+                    const consultaId = selectedConsulta.value;
+                    window.location.href = '/consultas/editar/' + consultaId;
+                } else {
+                    alert('Selecione uma consulta para editar.');
+                }
+            });
+
+            // Função para excluir paciente
+            document.getElementById('excluirBtn').addEventListener('click', function () {
+                const selectedConsulta = document.querySelector('input[name="selectedConsulta"]:checked');
+                if (selectedConsulta) {
+                    const consultaId = selectedConsulta.value;
+                    deletarConsulta(consultaId);
+                } else {
+                    alert('Selecione uma consulta para excluir.');
+                }
+            });
+
+            // Função de deleção via AJAX
+            function deletarConsulta(id) {
+                if (confirm("Tem certeza que deseja excluir esta consulta?")) {
+                    fetch('/consultas/' + id, {
+                        method: 'DELETE'
+                    })
+                            .then(response => {
+                                if (response.ok) {
+                                    alert('Consulta excluída com sucesso!');
+                                    window.location.href = '/consultas/agenda';
+                                } else {
+                                    alert('Erro ao excluir a consulta.');
+                                }
+                            })
+                            .catch(error => {
+                                alert('Erro ao excluir a consulta.: ' + error);
+                            });
+                }
+            }
+        </script>
+    </body>
 </html>
+

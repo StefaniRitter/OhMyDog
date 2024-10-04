@@ -1,7 +1,9 @@
 package com.pi.OhMyDog.service;
 
+import com.pi.OhMyDog.data.ConsultaRepository;
 import com.pi.OhMyDog.data.PacienteEntity;
 import com.pi.OhMyDog.data.PacienteRepository;
+import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,9 @@ public class PacienteService {
     
     @Autowired
     private PacienteRepository pacienteRepository;
+    
+     @Autowired
+    private ConsultaRepository consultaRepository;
 
     public List<PacienteEntity> listarTodos() {
         return pacienteRepository.findAll();
@@ -43,9 +48,15 @@ public class PacienteService {
         return pacienteRepository.save(pac);
     }
     
-    public void deletar(int id) {
+     @Transactional
+    public void deletarPaciente(Integer id) {
+        // Apagar as consultas associadas ao paciente
+        consultaRepository.deleteAllByPaciente_Id(id);
+        
+        // Agora, apagar o paciente
         pacienteRepository.deleteById(id);
     }
+
     
     
     

@@ -1,14 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Nova Consulta</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastro de Consulta</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     </head>
     <body>
-        <div>
-            <div><h1 class="mt-3 claro">Nova Consulta</h1></div>
-            <form method="POST" th:action="@{/consulltas/agenda}" th:object="${consulta}">
+        <div class="text-center mt-3">
+            <h1>Nova Consulta</h1>
         </div>
-    </body>
+        <div class="d-flex justify-content-center align-items-center min-vh-100">
+            <div class="container">
+                <h6 class="text-center">Preencha o formulário</h6>
+                <form method="POST" th:action="@{/consultas/novaConsulta}" th:object="${consulta}" class="mt-4">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="data">Data</label>
+                            <input type="text" th:field="*{data}" class="form-control form-control-sm" id="data" placeholder="dd/mm/aaaa">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="hora">Hora</label>
+                            <input type="text" th:field="*{hora}" class="form-control form-control-sm" id="hora" placeholder="00:00">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="descricao">Descrição</label>
+                            <input type="text" th:field="*{descricao}" class="form-control form-control-sm" id="descricao">
+                        </div>
+                        <div class="form-check">
+
+                            <!-- Checkbox com valor "Sim" -->
+                            <input class="form-check-input" type="checkbox" name="pago" value="Sim" id="pago">
+                            <label class="form-check-label" for="pago">Pago</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="paciente">Selecionar Paciente</label>
+                            <select th:field="*{paciente.id}" class="form-control form-control-sm" id="paciente"> <!-- Alterado para selecionar paciente -->
+                                <option value="0" disabled selected>Selecione um paciente</option>
+                                <option th:each="paciente : ${pacientes}" th:value="${paciente.id}" th:text="${paciente.nome} + ' (ID: ' + ${paciente.id} + ')'"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-block">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+         </body>
 </html>

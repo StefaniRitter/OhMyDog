@@ -21,16 +21,16 @@ public class PacienteController {
         @Autowired
     private PacienteService pacService;
     
-    @GetMapping("/novoPaciente")
+    @GetMapping("/cadastro")
     public String exibirFormularioPac(Model model) {
         model.addAttribute("paciente", new PacienteEntity()); 
         return "cadastro"; 
     }
     
-    @PostMapping("/novoPaciente")
+    @PostMapping("/cadastro")
     public String adicionarPaciente(@ModelAttribute PacienteEntity pac) {
        pacService.salvar(pac); 
-        return "redirect:/pacientes"; 
+        return "redirect:/pacientes/lista"; 
     }
     
     @GetMapping("/lista")
@@ -65,13 +65,13 @@ public class PacienteController {
             pacExistente.setObservacoes(pacAtualizado.getObservacoes());
             pacService.atualizar(id, pacExistente); 
         }
-        return "redirect:/pacientes/editar" + id; 
+        return "redirect:/pacientes/lista"; 
     }
     
     @DeleteMapping("/{id}")
     @ResponseBody
     public void deletarPaciente(@PathVariable int id) {
-        pacService.deletar(id); 
+        pacService.deletarPaciente(id); 
     }
     
     

@@ -1,0 +1,59 @@
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+    color: white;
+    margin-top: 0px;
+}
+
+h6 {
+    font-size: 20px;
+}
+
+body {
+    background-color: #2c9827;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.container {
+    max-width: 700px;
+    padding: 20px; /* Reduzi o padding para diminuir o espaço interno superior */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 70px; /* Ajuste da margem superior do container */
+}
+
+.form-group:first-child {
+    margin-top: 0; /* Remove qualquer margem extra no primeiro campo */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Espaçamento padrão entre os grupos de campos */
+}
+
+button {
+    background-color: #2c9827; /* Botão verde */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remove bordas extras */
+    padding: 10px 20px; /* Ajuste de padding */
+    border-radius: 5px; /* Bordas arredondadas */
+    margin-top: 15px; /* Espaço antes do botão */
+}
+
+button:hover {
+    background-color: #249322; /* Cor mais escura ao passar o mouse */
+}
+
+.form-control-sm {
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+}
+

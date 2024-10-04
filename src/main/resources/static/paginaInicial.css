@@ -1,0 +1,25 @@
+body{
+    background-color: #2c9827;
+}
+
+button{
+    background-color: #81c77e;
+    margin-bottom: 15px;
+    border: solid 4px black;
+}
+
+h1{
+    font-family:sans-serif;
+    font-size: 40px;
+    margin-bottom: 1px;
+}
+
+h6{
+    margin-top: 2px;
+    font-family:cursive;
+    font-size: 20px;
+}
+
+.container{
+    margin-top: 200px;
+}
