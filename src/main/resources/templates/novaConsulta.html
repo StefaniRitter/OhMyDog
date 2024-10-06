@@ -4,51 +4,70 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cadastro de Consulta</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <link rel="stylesheet" href="/cadastro.css">
     </head>
     <body>
+        <a href="/" class="icone" title="Ir para a Página Inicial">
+            <i class="fas fa-home"></i> 
+        </a>
         <div class="text-center mt-3">
             <h1>Nova Consulta</h1>
         </div>
         <div class="d-flex justify-content-center align-items-center min-vh-100">
             <div class="container">
                 <h6 class="text-center">Preencha o formulário</h6>
-                <form method="POST" th:action="@{/consultas/novaConsulta}" th:object="${consulta}" class="mt-4">
+                <form method="POST" th:action="@{/consultas/novaConsulta}" th:object="${consulta}" id="cadastroConsultaForm" class="mt-4">
+                    <!-- Primeira linha: Data e Hora -->
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="data">Data</label>
-                            <input type="text" th:field="*{data}" class="form-control form-control-sm" id="data" placeholder="dd/mm/aaaa" pattern="\d{2}/\d{2}/\d{4}" required>
+                            <input type="text" th:field="*{data}" class="form-control form-control-sm" id="data" placeholder="dd/mm/aaaa" required>
+                            <small class="text-danger" id="dataError"></small>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="hora">Hora</label>
-                            <input type="text" th:field="*{hora}" class="form-control form-control-sm" id="hora" placeholder="00:00" pattern="\d{2}:\d{2}" required>
+                            <input type="text" th:field="*{hora}" class="form-control form-control-sm" id="hora" placeholder="00:00" required>
+                            <small class="text-danger" id="horaError"></small>
                         </div>
                     </div>
+
+                    <!-- Segunda linha: Descrição ocupando a linha inteira -->
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label for="descricao">Descrição</label>
                             <input type="text" th:field="*{descricao}" class="form-control form-control-sm" id="descricao" required>
-                        </div>
-                        <div class="form-check">
-
-                            <!-- Checkbox com valor "Sim" -->
-                            <input class="form-check-input" type="checkbox" name="pago" value="Sim" id="pago">
-                            <label class="form-check-label" for="pago">Pago</label>
+                            <small class="text-danger" id="descricaoError"></small>
                         </div>
                     </div>
+
+                    <!-- Terceira linha: Selecionar Paciente e Pago alinhados -->
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="paciente">Selecionar Paciente</label>
-                            <select th:field="*{paciente.id}" class="form-control form-control-sm" id="paciente" required> <!-- Alterado para selecionar paciente -->
+                            <select th:field="*{paciente.id}" class="form-control form-control-sm" id="paciente" required>
                                 <option value="0" disabled selected>Selecione um paciente</option>
-                                <option th:each="paciente : ${pacientes}" th:value="${paciente.id}" th:text="${paciente.nome} + ' (ID: ' + ${paciente.id} + ')'"></option>
+                                <option th:each="paciente : ${pacientes}" th:value="${paciente.id}" 
+                                        th:text="${paciente.nome} + ' (ID: ' + ${paciente.id} + ')'"></option>
                             </select>
+                            <small class="text-danger" id="pacienteError"></small>
+                        </div>
+                        <div class="form-group col-md-6 d-flex align-items-center">
+                            <div class="form-check" style="margin-left: 130px; margin-top: 15px;">
+                                <input class="form-check-input" type="checkbox" name="pago" 
+                                       value="true" id="pago">
+                                <label class="form-check-label" for="pago">Pago</label>
+                            </div>
                         </div>
                     </div>
+                    
+                    <!-- Botão de enviar -->
                     <button type="submit" class="btn btn-block">Cadastrar</button>
                 </form>
             </div>
         </div>
-         </body>
+
+        <script src="/validacao.js"></script>
+    </body>
 </html>

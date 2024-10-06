@@ -32,7 +32,7 @@ public class ConsultaService {
             cons.setData(consultaRequest.getData());
             cons.setHora(consultaRequest.getHora());
             cons.setDescricao(consultaRequest.getDescricao());
-            cons.setPago(consultaRequest.getPago());
+            cons.setPago(consultaRequest.isPago());
             cons.setPaciente(consultaRequest.getPaciente()); // Atualiza o paciente
             return consRepository.save(cons);
         }

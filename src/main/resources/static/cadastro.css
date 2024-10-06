@@ -2,7 +2,6 @@ h1 {
     font-family: 'Times New Roman', Times, serif;
     font-size: 40px;
     color: white;
-    margin-top: 0px;
 }
 
 h6 {
@@ -73,7 +72,7 @@ body .icone {
     font-size: 20px; /* Aumenta o tamanho do ícone */
 }
 .icone i {
-    color: white; /* Cor do ícone */
+    color: white !important; /* Cor do ícone */
 }
 .icone:hover {
     background-color: darkgreen; /* Cor ao passar o mouse */

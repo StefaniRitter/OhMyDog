@@ -1,0 +1,101 @@
+/* Estilo global */
+body {
+    background-color: #e8f5e9; /* Verde claro suave */
+    font-family: Arial, sans-serif;
+    color: #333; /* Texto padrão */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+body .icone {
+    width: 40px !important;
+    height: 40px !important;
+    background-color: green !important;
+    color: white !important;
+    position: absolute; /* Para posicionar em relação à tela */
+    top: 10px; /* Distância do topo */
+    left: 10px; /* Distância da esquerda */
+    display: flex; /* Para centralizar o conteúdo */
+    align-items: center; /* Alinhamento vertical */
+    justify-content: center; /* Alinhamento horizontal */
+    border-radius: 50%; /* Para deixar o ícone redondo */
+    text-decoration: none; /* Remove o sublinhado */
+    font-size: 20px; /* Aumenta o tamanho do ícone */
+}
+.icone i {
+    color: white !important; /* Cor do ícone */
+}
+.icone:hover {
+    background-color: darkgreen; /* Cor ao passar o mouse */
+}
+
+h1 {
+    font-family: sans-serif;
+    color: #2c9827;
+    font-size: 36px;
+    margin-bottom: 100px;
+}
+
+.table {
+    border: 1px solid transparent; 
+    margin: 0 auto;
+    border-radius: 10px;
+    border-collapse: collapse;
+}
+
+.table thead {
+    background-color: #2c9827;
+    color: white; 
+}
+
+.table th, .table td {
+    padding: 12px; 
+    text-align: center;
+    border: 1px solid #ddd; 
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+    background-color: #e8f5e9; 
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 100px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px;
+}
+
+button.btn-primary {
+    background-color: #2c9827;
+    color: white;
+}
+
+button.btn-primary:hover {
+    background-color: #249322;
+}
+
+button.btn-danger {
+    background-color: #d32f2f;
+    color: white;
+}
+
+button.btn-danger:hover {
+    background-color: #c62828;
+}
+
+.container {
+    background-color: transparent !important;
+    border: none; 
+    box-shadow: none;
+    padding: 0; 
+    margin: 0;
+}

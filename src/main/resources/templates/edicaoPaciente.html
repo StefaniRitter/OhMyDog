@@ -4,54 +4,67 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Editar Paciente</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <link rel="stylesheet" href="/cadastro.css">
     </head>
     <body>
+        <a href="/" class="icone" title="Ir para a Página Inicial">
+        <i class="fas fa-home"></i> 
+    </a>
         <div class="text-center mt-3">
             <h1>Editar Paciente</h1>
         </div>
         <div class="d-flex justify-content-center align-items-center min-vh-100">
             <div class="container">
                 <h6 class="text-center">Preencha o formulário</h6>
-                <form method="POST" th:action="@{/pacientes/editar/{id}(id=${paciente.id})}" th:object="${paciente}" class="mt-4">
+                <form  method="POST" th:action="@{/pacientes/editar/{id}(id=${paciente.id})}" th:object="${paciente}" id="edicaoPacienteForm" class="mt-4">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="nome">Nome</label>
                             <input type="text" th:field="*{nome}" class="form-control form-control-sm" id="nome" placeholder="Nome do paciente" required>
+                            <small class="text-danger" id="nomeError"></small>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="especie">Espécie</label>
                             <input type="text" th:field="*{especie}" class="form-control form-control-sm" id="especie" placeholder="Espécie" required>
+                            <small class="text-danger" id="especieError"></small>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="raca">Raça</label>
                             <input type="text" th:field="*{raca}" class="form-control form-control-sm" id="raca" placeholder="Raça" required>
+                            <small class="text-danger" id="racaError"></small>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="sexo">Sexo</label>
                             <input type="text" th:field="*{sexo}" class="form-control form-control-sm" id="sexo" placeholder="Sexo" required>
+                            <small class="text-danger" id="sexoError"></small>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="idade">Idade</label>
                             <input type="text" th:field="*{idade}" class="form-control form-control-sm" id="idade" placeholder="Idade" required>
+                                   <small class="text-danger" id="idadeError"></small>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="peso">Peso</label>
                             <input type="text" th:field="*{peso}" class="form-control form-control-sm" id="peso" placeholder="Peso" required>
+                            <small class="text-danger" id="pesoError"></small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="observacoes">Observações</label>
-                        <textarea th:field="*{observacoes}" class="form-control form-control-sm" id="observacoes" rows="2" required></textarea>
+                        <textarea th:field="*{observacoes}" class="form-control form-control-sm" id="observacoes" rows="2"></textarea>
                     </div>
                     <button type="submit" class="btn btn-block">Salvar Alterações</button>
                 </form>
             </div>
         </div>
+
+        <script src="/validacao.js"></script>
     </body>
 </html>
+

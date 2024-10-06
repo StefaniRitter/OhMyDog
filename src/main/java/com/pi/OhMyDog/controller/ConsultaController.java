@@ -74,7 +74,7 @@ public class ConsultaController {
             consultaExistente.setData(consAtualizada.getData());
             consultaExistente.setHora(consAtualizada.getHora());
             consultaExistente.setDescricao(consAtualizada.getDescricao());
-            consultaExistente.setPago(consAtualizada.getPago());
+            consultaExistente.setPago(consAtualizada.isPago());
             consultaExistente.setPaciente(consAtualizada.getPaciente()); // Atualiza o paciente
             consultaService.atualizarCons(id, consultaExistente);
         }

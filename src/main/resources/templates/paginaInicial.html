@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="/paginaInicial.css">
-            <link rel="stylesheet" 
-                  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
-                  crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
         <title>Clínica OhMyDog</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/paginaInicial.css">
     </head>
     <body>
         <div>
@@ -22,7 +20,6 @@
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
-
             document.querySelector('.novaConsultaButton').addEventListener('click', function () {
                 novaConsulta();
             });
@@ -48,14 +45,13 @@
             }
             
             document.querySelector('.listaButton').addEventListener('click', function () {
-                    lista();
+                lista();
             });
 
             function lista() {
                 window.location.href = '/pacientes/lista';
             }
-
         </script>
-
     </body>
 </html>
+

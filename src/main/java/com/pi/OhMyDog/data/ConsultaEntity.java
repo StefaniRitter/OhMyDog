@@ -28,5 +28,6 @@ public class ConsultaEntity  {
     private String data;
     private String hora;
     private String descricao;
-    private String pago = "Não";
+    private boolean pago;
+   
 }
