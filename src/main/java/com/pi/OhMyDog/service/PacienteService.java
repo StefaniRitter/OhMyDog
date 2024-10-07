@@ -50,10 +50,8 @@ public class PacienteService {
     
      @Transactional
     public void deletarPaciente(Integer id) {
-        // Apagar as consultas associadas ao paciente
         consultaRepository.deleteAllByPaciente_Id(id);
-        
-        // Agora, apagar o paciente
+
         pacienteRepository.deleteById(id);
     }
 

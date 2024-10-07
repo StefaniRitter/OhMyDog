@@ -4,10 +4,6 @@ h1 {
     color: white;
 }
 
-h6 {
-    font-size: 20px;
-}
-
 body {
     background-color: #2c9827;
     margin: 0;
@@ -20,32 +16,32 @@ body {
 
 .container {
     max-width: 700px;
-    padding: 20px; /* Reduzi o padding para diminuir o espaço interno superior */
+    padding: 20px; 
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 70px; /* Ajuste da margem superior do container */
+    margin-top: 70px; 
 }
 
 .form-group:first-child {
-    margin-top: 0; /* Remove qualquer margem extra no primeiro campo */
+    margin-top: 0;
 }
 
 .form-group {
-    margin-bottom: 15px; /* Espaçamento padrão entre os grupos de campos */
+    margin-bottom: 15px;
 }
 
 button {
-    background-color: #2c9827; /* Botão verde */
-    color: white; /* Cor do texto do botão */
-    border: none; /* Remove bordas extras */
-    padding: 10px 20px; /* Ajuste de padding */
-    border-radius: 5px; /* Bordas arredondadas */
-    margin-top: 15px; /* Espaço antes do botão */
+    background-color: #2c9827; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px;
+    border-radius: 5px; 
+    margin-top: 15px;
 }
 
 button:hover {
-    background-color: #249322; /* Cor mais escura ao passar o mouse */
+    background-color: #249322;
 }
 
 .form-control-sm {
@@ -61,19 +57,19 @@ body .icone {
     height: 40px !important;
     background-color: green !important;
     color: white !important;
-    position: absolute; /* Para posicionar em relação à tela */
-    top: 10px; /* Distância do topo */
-    left: 10px; /* Distância da esquerda */
-    display: flex; /* Para centralizar o conteúdo */
-    align-items: center; /* Alinhamento vertical */
-    justify-content: center; /* Alinhamento horizontal */
-    border-radius: 50%; /* Para deixar o ícone redondo */
-    text-decoration: none; /* Remove o sublinhado */
-    font-size: 20px; /* Aumenta o tamanho do ícone */
+    position: absolute;
+    top: 10px; 
+    left: 10px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    border-radius: 50%; 
+    text-decoration: none;
+    font-size: 20px;
 }
 .icone i {
-    color: white !important; /* Cor do ícone */
+    color: white !important; 
 }
 .icone:hover {
-    background-color: darkgreen; /* Cor ao passar o mouse */
+    background-color: darkgreen;
 }

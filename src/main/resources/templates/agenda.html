@@ -12,7 +12,9 @@
         <a href="/" class="icone" title="Ir para a Página Inicial">
             <i class="fas fa-home"></i> 
         </a>
-        <h1 class="text-center">Agenda de Consultas</h1>
+        <div class="text-center mt-3">
+            <h1>Agenda de Consultas</h1>
+        </div>
         <div class="container-fluid mt-3">
              <div class="table-container" style="width: 80%; max-width: 1200px; margin: 0 auto;">
         <table class="table table-bordered table-striped mt-4">
@@ -34,7 +36,7 @@
                         </td>
                         <td th:text="${consulta.data}"></td>
                         <td th:text="${consulta.hora}"></td>
-                        <td th:text="${consulta.paciente.nome}"></td> <!-- Alterado para acessar diretamente o nome do paciente -->
+                        <td th:text="${consulta.paciente.nome}"></td> 
                         <td th:text="${consulta.descricao}"></td>
                         <td th:text="${consulta.pago ? 'Sim' : 'Não'}"></td>
                     </tr>
@@ -42,7 +44,6 @@
             </table>
              </div>
 
-            <!-- Botões de ação -->
             <div class="mt-4 text-center">
                 <button id="editarBtn" class="btn btn-primary">Editar</button>
                 <button id="excluirBtn" class="btn btn-danger">Excluir</button>
@@ -50,7 +51,7 @@
         </div>
 
         <script>
-            // Função para editar paciente
+
             document.getElementById('editarBtn').addEventListener('click', function () {
                 const selectedConsulta = document.querySelector('input[name="selectedConsulta"]:checked');
                 if (selectedConsulta) {
@@ -61,7 +62,6 @@
                 }
             });
 
-            // Função para excluir paciente
             document.getElementById('excluirBtn').addEventListener('click', function () {
                 const selectedConsulta = document.querySelector('input[name="selectedConsulta"]:checked');
                 if (selectedConsulta) {
@@ -72,7 +72,6 @@
                 }
             });
 
-            // Função de deleção via AJAX
             function deletarConsulta(id) {
                 if (confirm("Tem certeza que deseja excluir esta consulta?")) {
                     fetch('/consultas/' + id, {

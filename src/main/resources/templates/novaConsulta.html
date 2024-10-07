@@ -19,7 +19,7 @@
             <div class="container">
                 <h6 class="text-center">Preencha o formulário</h6>
                 <form method="POST" th:action="@{/consultas/novaConsulta}" th:object="${consulta}" id="cadastroConsultaForm" class="mt-4">
-                    <!-- Primeira linha: Data e Hora -->
+
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="data">Data</label>
@@ -33,7 +33,6 @@
                         </div>
                     </div>
 
-                    <!-- Segunda linha: Descrição ocupando a linha inteira -->
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="descricao">Descrição</label>
@@ -42,7 +41,6 @@
                         </div>
                     </div>
 
-                    <!-- Terceira linha: Selecionar Paciente e Pago alinhados -->
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="paciente">Selecionar Paciente</label>
@@ -61,8 +59,7 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Botão de enviar -->
+
                     <button type="submit" class="btn btn-block">Cadastrar</button>
                 </form>
             </div>

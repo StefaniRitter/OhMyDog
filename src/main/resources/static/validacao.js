@@ -29,8 +29,6 @@ function validarCadastro(event) {
         document.getElementById("especieError").innerText = "";
     }
 
-    // Repita as validações para os outros campos...
-
     if (!valid) {
         event.preventDefault();
     }

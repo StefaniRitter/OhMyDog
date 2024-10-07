@@ -46,25 +46,24 @@ public class ConsultaController {
     public String agendaConsultas(Model model) {
         List<ConsultaEntity> consultas = consultaService.listarTodas();
 
-        // Iterar pelas consultas e associar o nome do pet
         Map<Integer, String> petsMap = new HashMap<>();
         for (ConsultaEntity consulta : consultas) {
-            PacienteEntity pet = consulta.getPaciente(); // Acessa o paciente diretamente pela consulta
+            PacienteEntity pet = consulta.getPaciente(); 
             petsMap.put(consulta.getId(), pet.getNome());
         }
 
         model.addAttribute("consultas", consultas);
-        model.addAttribute("petsMap", petsMap); // Mapa para passar ao template
+        model.addAttribute("petsMap", petsMap); 
         return "agenda";
     }
 
     @GetMapping("/editar/{id}")
     public String editarConsulta(@PathVariable Integer id, Model model) {
         ConsultaEntity consulta = consultaService.buscarPorId(id);
-        PacienteEntity pet = consulta.getPaciente(); // Recupera o Pet baseado no relacionamento ManyToOne
+        PacienteEntity pet = consulta.getPaciente(); 
         model.addAttribute("consulta", consulta);
-        model.addAttribute("pet", pet); // Passa o pet para o template
-        return "edicaoConsulta"; // Nome do template Thymeleaf
+        model.addAttribute("pet", pet); 
+        return "edicaoConsulta"; 
     }
 
     @PostMapping("/editar/{id}")
@@ -75,7 +74,7 @@ public class ConsultaController {
             consultaExistente.setHora(consAtualizada.getHora());
             consultaExistente.setDescricao(consAtualizada.getDescricao());
             consultaExistente.setPago(consAtualizada.isPago());
-            consultaExistente.setPaciente(consAtualizada.getPaciente()); // Atualiza o paciente
+            consultaExistente.setPaciente(consAtualizada.getPaciente()); 
             consultaService.atualizarCons(id, consultaExistente);
         }
         return "redirect:/consultas/agenda";

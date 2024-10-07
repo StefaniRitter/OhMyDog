@@ -6,16 +6,16 @@
         <title>Lista de Pacientes</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <link rel="stylesheet" href="/lista.css"> <!-- Adiciona o caminho para o arquivo CSS -->
+        <link rel="stylesheet" href="/lista.css"> 
     </head>
-    <body>
-        <!-- Ícone de casa -->
         <a href="/" class="icone" title="Ir para a Página Inicial">
             <i class="fas fa-home"></i> 
         </a>
-        <h1 class="text-center">Lista de Pacientes</h1>
+    <div class="text-center mt-3">
+            <h1>Pacientes Cadastrados</h1>
+        </div>
         <div class="container-fluid mt-3">
-            <div class="table-container" style="width: 80%; max-width: 1200px; margin: 0 auto;">
+            <div class="table-container" style="width: 80%; max-width: 1000px; margin: 0 auto;">
         <table class="table table-bordered table-striped mt-4">
             <thead class="thead">
                     <tr>
@@ -30,10 +30,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Laço para preencher a tabela com dados dos pacientes -->
                     <tr th:each="paciente : ${pacientes}">
                         <td>
-                            <!-- Radio button para selecionar o paciente -->
                             <input type="radio" name="selectedPaciente" th:value="${paciente.id}">
                         </td>
                         <td th:text="${paciente.nome}"></td>
@@ -48,7 +46,6 @@
             </table>
             </div>
 
-            <!-- Botões de ação -->
             <div class="mt-4 text-center">
                 <button id="editarBtn" class="btn btn-primary">Editar</button>
                 <button id="excluirBtn" class="btn btn-danger">Excluir</button>
@@ -56,7 +53,6 @@
         </div>
 
         <script>
-            // Função para editar paciente
             document.getElementById('editarBtn').addEventListener('click', function () {
                 const selectedPaciente = document.querySelector('input[name="selectedPaciente"]:checked');
                 if (selectedPaciente) {
@@ -67,7 +63,6 @@
                 }
             });
 
-            // Função para excluir paciente
             document.getElementById('excluirBtn').addEventListener('click', function () {
                 const selectedPaciente = document.querySelector('input[name="selectedPaciente"]:checked');
                 if (selectedPaciente) {
@@ -78,7 +73,6 @@
                 }
             });
 
-            // Função de deleção via AJAX
             function deletarPaciente(id) {
                 if (confirm("Tem certeza que deseja excluir este paciente?")) {
                     fetch('/pacientes/' + id, {
