@@ -30,7 +30,7 @@ public class PacienteEntity {
     private String sexo;
     private String idade;
     private String peso;
-    private String observacoes;
+    private String observacoes = "Sem observações";
     
 }
 
