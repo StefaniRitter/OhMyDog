@@ -2,7 +2,7 @@
 Projeto Integrador
 
 Status do Projeto: 
-em desenvolvimento
+finalizado
 
 Tecnologias aplicadas:
 Java;
